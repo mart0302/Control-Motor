@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PAGINA PARA MOTOR :)</title>
+  <style>
+    html {font-family: Times New Roman; display: inline-block; text-align: center;}
+    h2 {font-size: 2.3rem;}
+    p {font-size: 2.0rem;}
+    body {max-width: 400px; margin:0px auto; padding-bottom: 25px;}
+    .slider { -webkit-appearance: none; margin: 14px; width: 360px; height: 25px; background: #4000ff;
+      outline: none; -webkit-transition: .2s; transition: opacity .2s;}
+    .slider::-webkit-slider-thumb {-webkit-appearance: none; appearance: none; width: 35px; height: 35px; background:#01070a; cursor: pointer;}
+    .slider::-moz-range-thumb { width: 35px; height: 35px; background: #01070a; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>PAGINA PARA MOTOR :)</h2>
+  <p></p>
+  <p><input type="range" onchange="actualizarPWM(this)" id="pwmSlider" min="0" max="255" value="127" step="1
+" class="slider"></p>
+<script>
+function actualizarPWM(elemento) {
+  var valor_deslizador = document.getElementById("pwmSlider").value;
+  console.log(valor_deslizador);
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/deslizador?valor="+valor_deslizador, true);
+  xhr.send();
+}
+</script>
+</body>
+</html>
